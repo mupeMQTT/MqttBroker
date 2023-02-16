@@ -30,9 +30,7 @@
 #include "mupeMdnsNtp.h"
 #include "mupeMQTT.h"
 #include "mupeWeb.h"
-
-
-
+#include "mupeModbusMQTT.h"
 
 
 void init() {
@@ -47,6 +45,7 @@ void init() {
 	mupeWifiInit();
 	mupeMdnsNtpInit();
 	mupeMqttInit();
+	mupeModbusInit();
 	mupeWebInit();
 
 
@@ -56,6 +55,4 @@ void app_main(void) {
 
 	init();
     xTaskCreatePinnedToCore(mupeMqttServerTask, "mupeMQTT_server_task",4096, NULL, 1, NULL, 0);
-
-
 }
