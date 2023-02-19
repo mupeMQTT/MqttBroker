@@ -31,6 +31,7 @@
 #include "mupeMQTT.h"
 #include "mupeWeb.h"
 #include "mupeModbusMQTT.h"
+#include "mupeClientMqtt.h"
 
 
 void init() {
@@ -46,7 +47,9 @@ void init() {
 	mupeMdnsNtpInit();
 	mupeMqttInit();
 	mupeModbusInit();
+	mupeClientMqttInit();
 	mupeWebInit();
+
 
 
 }
