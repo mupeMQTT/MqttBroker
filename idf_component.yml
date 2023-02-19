@@ -1,5 +1,6 @@
 ## IDF Component Manager Manifest File
 dependencies:
+  espressif/json_generator: "==1.1.1"
   espressif/mdns: "==1.0.7"
   ## Required IDF version
   idf:
