@@ -10,11 +10,13 @@ creat a esp-idf project and install ESP-IDF Component espressif__mdns
 
 - __mqttBroker__
     - __components__
-      - [mupeClientMqtt](https://github.com/mupeMQTT/mupeClientMqtt)
+      - [**mupeClientMqtt](https://github.com/mupeMQTT/mupeClientMqtt)
       - [mupeMdnsNtp](https://github.com/mupeMQTT/mupeMdnsNtp)
-      - [mupeModbusMQTT](https://github.com/mupeMQTT/mupeModbusMQTT)
+      - [**mupeModbusMQTT](https://github.com/mupeMQTT/mupeModbusMQTT)
       - [mupeMQTT](https://github.com/mupeMQTT/mupeMQTT)
       - [mupeWeb](https://github.com/mupeMQTT/mupeWeb)
-      - [mupeWeb](https://github.com/mupeMQTT/mupeWeb)
+      - [mupeWifi](https://github.com/mupeMQTT/mupeWifi)
     - __main__
+   
+** Additional components not necessary
  
