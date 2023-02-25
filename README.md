@@ -3,6 +3,8 @@
 Create a mqttBroker for esp-idf.
 
 esp esp32c2 esp32c3 esp32h2 esp32s2 esp32s3.
+for MQTT Version 3.1.1 and Version 5 
+
 
 creat a esp-idf project and install ESP-IDF Component espressif__mdns
 
@@ -19,4 +21,6 @@ creat a esp-idf project and install ESP-IDF Component espressif__mdns
     - __main__
    
 ** Additional components not necessary
+
+
  
