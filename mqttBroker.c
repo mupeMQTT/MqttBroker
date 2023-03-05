@@ -32,6 +32,8 @@
 #include "mupeWeb.h"
 #include "mupeModbusMQTT.h"
 #include "mupeClientMqtt.h"
+#include "mupeSdCard.h"
+
 
 
 void init() {
@@ -42,20 +44,16 @@ void init() {
 		ret = nvs_flash_init();
 	}
 	ESP_ERROR_CHECK(ret);
-
+	mupeSdCardInit();
 	mupeWifiInit();
 	mupeMdnsNtpInit();
 	mupeMqttInit();
 	mupeModbusInit();
 	mupeClientMqttInit();
 	mupeWebInit();
-
-
-
 }
 
 void app_main(void) {
-
 	init();
     xTaskCreatePinnedToCore(mupeMqttServerTask, "mupeMQTT_server_task",4096, NULL, 1, NULL, 0);
 }
