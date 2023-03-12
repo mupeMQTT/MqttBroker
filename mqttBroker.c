@@ -44,12 +44,13 @@ void init() {
 		ret = nvs_flash_init();
 	}
 	ESP_ERROR_CHECK(ret);
-	mupeSdCardInit();
+
 	mupeWifiInit();
 	mupeMdnsNtpInit();
 	mupeMqttInit();
 	mupeModbusInit();
 	mupeClientMqttInit();
+	mupeSdCardInit();
 	mupeWebInit();
 }
 
