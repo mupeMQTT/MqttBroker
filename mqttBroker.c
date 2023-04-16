@@ -1,4 +1,3 @@
-
 // Copyright Peter Müller mupe
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -33,13 +32,16 @@
 #include "mupeModbusMQTT.h"
 #include "mupeClientMqtt.h"
 #include "mupeSdCard.h"
+#include "mupePower.h"
+
+
+
 
 
 
 void init() {
 	esp_err_t ret = nvs_flash_init();
-	if (ret == ESP_ERR_NVS_NO_FREE_PAGES
-			|| ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+	if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
 		ESP_ERROR_CHECK(nvs_flash_erase());
 		ret = nvs_flash_init();
 	}
@@ -47,14 +49,25 @@ void init() {
 
 	mupeWifiInit();
 	mupeMdnsNtpInit();
+
+	//waitForNTPConnect();
+
 	mupeMqttInit();
 	mupeModbusInit();
 	mupeClientMqttInit();
 	mupeSdCardInit();
 	mupeWebInit();
+	mupePowerInit();
 }
 
+
 void app_main(void) {
+
+
 	init();
-    xTaskCreatePinnedToCore(mupeMqttServerTask, "mupeMQTT_server_task",4096, NULL, 1, NULL, 0);
+	xTaskCreatePinnedToCore(mupeMqttServerTask, "mupeMQTT_server_task", 4096,
+	NULL, 1, NULL, 0);
+	xTaskCreatePinnedToCore(mupePowerServerTask, "mupePowerServerTask", 8096,
+	NULL, 1, NULL, 0);
+
 }
